@@ -9,41 +9,22 @@
                     <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be
                         careful what you share.</p>
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-4">
-                            <label for="Title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
-                            <div class="mt-2">
-                                <div
-                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-
-                                    <input type="text" name="Title" id="Title"
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                        placeholder="Programmer" value="{{ old('Title') }}">
-                                </div>
-                                @error('Title')
-                                    <p class="text-red-500 text-sm font-semibold mt-3">{{ $message }}</p>
-                                @enderror
-                            </div>
+                    <x-form-field>
+                        <x-form-label for="Title">Title</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input type="text" name="Title" id="Title" placeholder="CEO"
+                                value="{{ old('Title') }}" />
+                            <x-form-error name="Title" />
                         </div>
-                    </div>
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-4">
-                            <label for="Salary"
-                                class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
-                            <div class="mt-2">
-                                <div
-                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-
-                                    <input type="text" name="Salary" id="Salary"
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                        placeholder="$50000" value="{{ old('Salary') }}">
-                                </div>
-                                @error('Salary')
-                                    <p class="text-red-500 text-sm font-semibold mt-3">{{ $message }}</p>
-                                @enderror
-                            </div>
+                    </x-form-field>
+                    <x-form-field>
+                        <x-form-label for="Salary">Salary</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input type="text" name="Salary" id="Salary" placeholder="$50000"
+                                value="{{ old('Salary') }}" />
+                            <x-form-error name="Salary" />
                         </div>
-                    </div>
+                    </x-form-field>
                 </div>
                 {{-- <ul>
                     @if ($errors->any())
@@ -54,9 +35,8 @@
                 </ul> --}}
             </div>
             <div class="mt-6 flex items-center justify-end gap-x-6">
-                <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-                <button type="submit"
-                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                <a href="/" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
+                <x-form-button>Save</x-form-button>
             </div>
         </form>
     </div>
